@@ -1,5 +1,5 @@
 
-E2Lib.RegisterExtension( "runOn", true, "Allows players to have more runOn options, such as runOnPlayerSpawnProp(1)." )
+E2Lib.RegisterExtension( "runOn Extended", true, "Allows players to have more runOn options, such as runOnPlayerSpawnProp(1)." )
 --By March Cain
 --(marchkarcz)
 local propSpawnAlert = {}

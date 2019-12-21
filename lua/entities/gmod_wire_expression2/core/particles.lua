@@ -1,6 +1,6 @@
 -- Particles were NOT coded by me. This is taken from E2Power, another addon.
 -- The previous addon had multiple backdoors, or I would have make my own fork. I in no way want to claim that this file is my own.
--- While there may be edits, the majority of this is not my code. Any possible backdoors were removed from hte code.
+-- While there may be edits, the majority of this is not my code. Any possible backdoors were removed from the code.
 
 
 local ParticlesThisSecond   = {}
@@ -11,6 +11,8 @@ local asin                  = math.asin
 local atan2                 = math.atan2
 local AlwaysRender          = 1
 local MaxParticlesPerSecond = CreateConVar( "sbox_e2_maxParticlesPerSecond", "100", FCVAR_ARCHIVE )
+
+E2Lib.RegisterExtension( "particles", true, "Adds in particle support for E2." )
 
 local function bearing(pos, plyer)
     pos = plyer:WorldToLocal(Vector(pos[1],pos[2],pos[3]))

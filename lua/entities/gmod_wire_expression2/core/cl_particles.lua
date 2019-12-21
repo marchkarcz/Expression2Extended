@@ -1,0 +1,5 @@
+E2Helper.Descriptions["particle"] = "Spawns a particle with the parameters you give it"
+E2Helper.Descriptions["particleBounce"] = "Makes the particle bounce"
+E2Helper.Descriptions["particleGravity"] = "Gives particles gravity."
+E2Helper.Descriptions["particleCollision"] = "Makes the particle collide"
+E2Helper.Descriptions["particleList"] = "Returns an array of particles spawned by the E2"

@@ -1,0 +1,21 @@
+E2Helper.Descriptions["runOnPlayerSpawnProp"] = "Runs the E2 whenever a player spawns a prop"
+E2Helper.Descriptions["playerSpawnPropClk"] = "Did the E2 execute because of a prop spawning?"
+E2Helper.Descriptions["lastSpawnedPropSpawner"] = "Returns the last person to spawn a prop"
+E2Helper.Descriptions["lastSpawnedPropModel"] = "Returns the last spawned prop's model"
+E2Helper.Descriptions["lastSpawnedPropEntity"] = "Returns the actual entity of the last spawned prop"
+
+E2Helper.Descriptions["runOnPlayerSpawnNPC"] = "Runs the E2 whenever a player spawns a NPC"
+E2Helper.Descriptions["playerSpawnNPCClk"] = "Did the E2 execute because of a NPC spawning?"
+E2Helper.Descriptions["lastSpawnedNPCSpawner"] = "Returns the last person to spawn a NPC"
+E2Helper.Descriptions["lastSpawnedNPCEntity"] = "Returns the actual entity of the last spawned NPC"
+
+E2Helper.Descriptions["runOnPlayerSpawnRagdoll"] = "Runs the E2 whenever a player spawns a ragdoll"
+E2Helper.Descriptions["playerSpawnRagdollClk"] = "Did the E2 execute because of a ragdoll spawning?"
+E2Helper.Descriptions["lastSpawnedRagdollSpawner"] = "Returns the last person to spawn a ragdoll"
+E2Helper.Descriptions["lastSpawnedRagdollModel"] = "Returns the last spawned ragdoll's model"
+E2Helper.Descriptions["lastSpawnedRagdollEntity"] = "Returns the actual entity of the last spawned ragdoll"
+
+E2Helper.Descriptions["runOnPlayerSpawnSENT"] = "Runs the E2 whenever a player spawns a SENT"
+E2Helper.Descriptions["playerSpawnSENTClk"] = "Did the E2 execute because of a SENT spawning?"
+E2Helper.Descriptions["lastSpawnedSENTSpawner"] = "Returns the last person to spawn a SENT"
+E2Helper.Descriptions["lastSpawnedSENTClass"] = "Returns the last spawned SENT's class"
