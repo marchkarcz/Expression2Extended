@@ -1,0 +1,11 @@
+{
+	"title"		:	"[E2] Expression2 Extended",
+	"type"		:	"ServerContent",
+	"tags"		:	[ "build", "fun" ],
+	"ignore"	:
+	[
+		"*.psd",
+		"*.vcproj",
+		"*.svn*"
+	]
+}
