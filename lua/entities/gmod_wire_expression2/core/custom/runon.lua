@@ -24,6 +24,12 @@ local runBySENTSpawn = 0
 local sentspawner = NULL
 local sentmodel = ""
 
+local vehicleSpawnAlert = {}
+local runByVehicleSpawn = 0
+local vehiclespawner = NULL
+local vehicleentity = NULL
+
+
 hook.Add("PlayerSpawnedProp","Exp2RunOnPropSpawn", function(ply, model, ent)
 	propspawner = ply
 	propmodelname = model
@@ -82,6 +88,19 @@ hook.Add("PlayerSpawnedSENT","Exp2RunOnSENTSpawn", function(ply, class)
 	end
 end)
 
+hook.Add("PlayerSpawnedVehicle","Exp2RunOnVehicleSpawn", function(ply, ent)
+	vehiclespawner = ply
+	vehicleentity = ent
+	for e,_ in pairs(sentSpawnAlert) do
+		if IsValid(e) then
+			e.context.data.runBySENTSpawn = true
+			e:Execute()
+			e.context.data.runBySENTSpawn = nil
+		else
+			sentSpawnAlert[e] = nil
+		end
+	end
+end)
 
 __e2setcost(15)
 -- Prop
@@ -93,11 +112,11 @@ e2function void runOnPlayerSpawnProp(activate)
 	end
 end
 
-e2function number playerSpawnPropClk()
+e2function number propSpawnClk()
 	return self.data.runByPropSpawn and 1 or 0
 end
 
-e2function entity lastSpawnedPropSpawner()
+e2function entity lastPropSpawner()
 	return propspawner
 end
 e2function string lastSpawnedPropModel()
@@ -108,7 +127,7 @@ e2function entity lastSpawnedPropEntity()
 end
 
 -- NPC
-e2function void runOnPlayerSpawnNPC(activate)
+e2function void runOnPlayerSpawnNpc(activate)
 	if activate ~= 0 then
 		npcSpawnAlert[self.entity] = true
 	else
@@ -116,14 +135,14 @@ e2function void runOnPlayerSpawnNPC(activate)
 	end
 end
 
-e2function number playerSpawnNPCClk()
+e2function number npcSpawnClk()
 	return self.data.runByNPCSpawn and 1 or 0
 end
 
-e2function entity lastSpawnedNPCSpawner()
+e2function entity lastNpcSpawner()
 	return npcspawner
 end
-e2function entity lastSpawnedNPCEntity()
+e2function entity lastSpawnedNpcEntity()
 	return npcentity
 end
 
@@ -137,14 +156,14 @@ e2function void runOnPlayerSpawnRagdoll(activate)
 	end
 end
 
-e2function number playerSpawnRagdollClk()
+e2function number ragdollSpawnClk()
 	return self.data.runByRagdollSpawn and 1 or 0
 end
 
 e2function entity lastSpawnedRagdollSpawner()
 	return ragdollspawner
 end
-e2function string lastSpawnedRagdollModel()
+e2function string lastRagdollSpawner()
 	return ragdollmodelname
 end
 e2function entity lastSpawnedRagdollEntity()
@@ -152,7 +171,7 @@ e2function entity lastSpawnedRagdollEntity()
 end
 
 -- SENT
-e2function void runOnPlayerSpawnSENT(activate)
+e2function void runOnPlayerSpawnSent(activate)
 	if activate ~= 0 then
 		sentSpawnAlert[self.entity] = true
 	else
@@ -160,13 +179,33 @@ e2function void runOnPlayerSpawnSENT(activate)
 	end
 end
 
-e2function number playerSpawnSENTClk()
-	return self.data.runBySENTSpawn and 1 or 0
+e2function number sentSpawnClk()
+	return self.data.runBySentSpawn and 1 or 0
 end
 
-e2function entity lastSpawnedSENTSpawner()
+e2function entity lastSentSpawner()
 	return sentspawner
 end
-e2function string lastSpawnedSENTClass()
+e2function string lastSpawnedSentClass()
 	return sentmodelname
+end
+
+-- Vehicle
+e2function void runOnPlayerSpawnVehicle(activate)
+	if activate ~= 0 then
+		vehicleSpawnAlert[self.entity] = true
+	else
+		vehicleSpawnAlert[self.entity] = nil
+	end
+end
+
+e2function number vehicleSpawnClk()
+	return self.data.runByVehicleSpawn and 1 or 0
+end
+
+e2function entity lastVehicleSpawner()
+	return vehiclespawner
+end
+e2function string lastSpawnedVehicleEntity()
+	return vehicleentity
 end
