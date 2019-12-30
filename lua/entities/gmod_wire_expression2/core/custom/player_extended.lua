@@ -38,3 +38,19 @@ e2function void entity:setPlayerFOV(number fov, number time)
         this:SetFOV(fov, time)
 	end		
 end
+
+e2function void entity:setWalkSpeed(number speed)
+	if(self.player:IsAdmin() && this:IsPlayer()){
+        this:SetWalkSpeed(speed)
+    }
+end
+e2function void entity:setRunSpeed(number speed)
+	if(self.player:IsAdmin() && this:IsPlayer()){
+        this:SetRunSpeed(speed)
+    }
+end
+e2function void entity:setJumpPower(number power)
+	if(self.player:IsAdmin() && this:IsPlayer()){
+        this:SetJumpPower(power)
+    }
+end
