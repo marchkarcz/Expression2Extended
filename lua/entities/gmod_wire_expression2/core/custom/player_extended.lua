@@ -20,10 +20,14 @@ e2function void entity:doDamage(number damage,number damageType)
         Damage:SetInflictor(this)
         Damage:SetDamageType(damageType)
 		this:TakeDamageInfo(Damage)
-        if(this:Health() <= 0){
+        util.AddNetworkString("consolemessage")
+        net.Start("consolemessage")
+        net.WriteString(""+self.player:Name()+" did "+damage + " on you!")
+        net.Send(this)            
+        if this:Health() <= 0 then
             this:Kill()
-        }
-	end		
+        end
+    end
 end
 
 e2function void entity:slayPlayer()
@@ -58,17 +62,17 @@ e2function void entity:setPlayerFOV(number fov, number time)
 end
 
 e2function void entity:setWalkSpeed(number speed)
-	if(self.player:IsAdmin() && this:IsPlayer()){
+	if(self.player:IsAdmin() && this:IsPlayer()) then
         this:SetWalkSpeed(speed)
     }
 end
 e2function void entity:setRunSpeed(number speed)
-	if(self.player:IsAdmin() && this:IsPlayer()){
+	if(self.player:IsAdmin() && this:IsPlayer()) then
         this:SetRunSpeed(speed)
-    }
+    end
 end
 e2function void entity:setJumpPower(number power)
-	if(self.player:IsAdmin() && this:IsPlayer()){
+	if(self.player:IsAdmin() && this:IsPlayer()) then
         this:SetJumpPower(power)
-    }
+    end
 end
