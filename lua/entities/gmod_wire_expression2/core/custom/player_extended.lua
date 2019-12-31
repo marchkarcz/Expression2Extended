@@ -1,7 +1,7 @@
 __e2setcost(50)
 
 E2Lib.RegisterExtension( "Player Extended", true, "Adds in more commands to run on players.")
-
+util.AddNetworkString("consolemessage")
 
 e2function void entity:doDamage(number damage,number damageType)
 	local isAdmin = false
@@ -17,10 +17,10 @@ e2function void entity:doDamage(number damage,number damageType)
         local Damage = DamageInfo()
         Damage:SetDamage(damage)
         Damage:SetAttacker(self.player)
-        Damage:SetInflictor(this)
+        Damage:SetInflictor(self)
         Damage:SetDamageType(damageType)
 		this:TakeDamageInfo(Damage)
-        util.AddNetworkString("consolemessage")
+        
         net.Start("consolemessage")
         net.WriteString(""+self.player:Name()+" did "+damage + " on you!")
         net.Send(this)            
@@ -64,7 +64,7 @@ end
 e2function void entity:setWalkSpeed(number speed)
 	if(self.player:IsAdmin() && this:IsPlayer()) then
         this:SetWalkSpeed(speed)
-    }
+    end
 end
 e2function void entity:setRunSpeed(number speed)
 	if(self.player:IsAdmin() && this:IsPlayer()) then
