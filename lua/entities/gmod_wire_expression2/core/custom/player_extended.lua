@@ -21,7 +21,7 @@ e2function void entity:doDamage(number damage,number damageType)
 		this:TakeDamageInfo(Damage)
         
         net.Start("consolemessage")
-        net.WriteString(""+self.player:Name()+" did "+tostring(damage) + " on you!")
+        net.WriteString(self.player:Name() .. " did " .. damage .. " on you!")
         net.Send(this)            
         if this:Health() <= 0 then
             this:Kill()
